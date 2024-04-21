@@ -2,9 +2,30 @@ import streamlit as st
 from annotated_text import annotated_text as st_annotated_text
 import tiktoken as tk
 from st_keyup import st_keyup
+import math
+
+def returnLightOrDark(rgbColor):
+    [r,g,b]=rgbColor
+    hsp = math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b))
+    if (hsp>127.5):
+        return '#000000'
+    else:
+        return '#FFFFFF'
+        
+
+def hex2rgb(color):
+    h = color.lstrip('#')
+    return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
 
 import random
 get_colors = lambda n: ["#%06x" % random.randint(0, 0xFFFFFF) for _ in range(n)]
+
+st.set_page_config(
+    page_title="TikTokenViewer",
+    page_icon="🫣",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 if 'supported_encodings' not in st.session_state:
     st.session_state.supported_encodings = tk.list_encoding_names()
@@ -72,8 +93,8 @@ def tknvisualize():
         tknColorsMap = dict(zip(idxs, tknColors))
         
         for k,v in tkns.items():
-            st.session_state.annotated_tkns.append((returnWSasNeeded(v), str(k), tknColorsMap[k]))
-            st.session_state.annotated_idxs.append((str(k),'',tknColorsMap[k]))
+            st.session_state.annotated_tkns.append((returnWSasNeeded(v), str(k), tknColorsMap[k], returnLightOrDark(hex2rgb(tknColorsMap[k]))))
+            st.session_state.annotated_idxs.append((str(k),'',tknColorsMap[k], returnLightOrDark(hex2rgb(tknColorsMap[k]))))
         
         st.session_state.totalTkns = len(st.session_state.annotated_idxs)
 
