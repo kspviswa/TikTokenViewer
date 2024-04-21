@@ -2,6 +2,10 @@
 
 A _childish_ attempt to reimplement [TikTokenizer](https://tiktokenizer.vercel.app/) in pure python using [OpenAI TikToken](https://github.com/openai/tiktoken), [streamlit](https://streamlit.io) and streamlit extras including [st-annotated-text](https://github.com/tvst/st-annotated-text/tree/master) and [st-keyup](https://github.com/blackary/streamlit-keyup)
 
+[Live Demo](https://tiktokenviewer.streamlit.app)
+
+![](tiktokenview_demo.gif)
+
 ToDos:
 
 - [ ] Implement the _hover-over_ effect as seen in original [TikTokenizer](https://tiktokenizer.vercel.app/)
