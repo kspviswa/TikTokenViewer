@@ -78,7 +78,8 @@ def tknvisualize():
         st.session_state.totalTkns = len(st.session_state.annotated_idxs)
 
 with st.sidebar:
-    choice = st.radio(label='Choose between coding scheme or a Language Model', options=('Encoding Scheme', 'Language Model'))
+    st.markdown('## Settings ⚙️')
+    choice = st.radio(label='Choose between Encoding scheme or a Language Model', options=('Encoding Scheme', 'Language Model'))
     match choice:
         case 'Encoding Scheme':
             st.session_state.selected_encoding = st.selectbox(label='Select Encoding Scheme', options=st.session_state.supported_encodings)
@@ -102,8 +103,8 @@ with st.sidebar:
     if st.session_state.input_text != '':
         tknvisualize()
 
-st.title('TikTokenViewer 🫣')
-st.subheader('Visualize your tokens 🤩🤩🤩')
+st.title(':rainbow[TikTokenViewer] 🫣')
+st.subheader(':rainbow[Visualize] your tokens 🤩🤩🤩')
 
 st.markdown('## Annotated Tokens')
 st_annotated_text(st.session_state.annotated_tkns)
@@ -118,4 +119,4 @@ st_annotated_text(st.session_state.annotated_idxs)
 # }})
 
 st.markdown('#### Total Tokens')
-st.markdown(f'## :rainbow[{st.session_state.totalTkns}]')
+st.markdown(f'# :rainbow[{st.session_state.totalTkns}]')
