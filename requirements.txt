@@ -35,7 +35,6 @@ six==1.16.0
 smmap==5.0.1
 st-annotated-text==4.0.1
 streamlit==1.33.0
-streamlit-card==1.0.0
 streamlit-keyup==0.2.4
 tenacity==8.2.3
 tiktoken==0.6.0
