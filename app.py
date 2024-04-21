@@ -50,7 +50,7 @@ def returnWSasNeeded(t: str):
     if st.session_state.includeWS:
         t = t.replace(' ', '␣')
         t = t.replace('\n', '⏎')
-        print(f'Replaced string {t}')
+        #print(f'Replaced string {t}')
     return t
 
 def tknvisualize():
